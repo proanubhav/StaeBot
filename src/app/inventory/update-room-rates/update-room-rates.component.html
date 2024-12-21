@@ -1,0 +1,586 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="page-wrapper">
+    <div class="row page-titles">
+        <div class="col-md-12 d-flex justify-content-between align-itmes-center">
+            <h2 class="text-themecolor mb-0">Update Rates</h2>
+            <div class="d-flex justify-content-end align-self-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Update Rates</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- Row -->
+    <div class="page-content container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-5">
+                            <div class="form-check config-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                    Show Rate Config.
+                                </label>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-danger">Reset</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Choose Start Date</label>
+                                    <input type="date" class="form-control" placeholder="dd/mm/yyyy"
+                                        [(ngModel)]="startDate" (change)="updateHeaders()">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table common-table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th *ngFor="let header of tableHeaders" [innerHTML]="header"></th>
+                                            </tr>
+                                            <tr>
+                                                <th>Dynamic Rates</th>
+                                                <th *ngFor="let date of tableHeaders">
+                                                    <div class="switch-radio">
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customSwitch1">
+                                                            <label class="custom-control-label"
+                                                                for="customSwitch1"></label>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="min-width: 220px;">Available Rooms (Occupancy %)</td>
+                                                <td class="bg-grey">10<br>(84%)</td>
+                                                <td class="bg-grey">10<br>(84%)</td>
+                                                <td class="bg-grey">10<br>(84%)</td>
+                                                <td class="bg-grey">10<br>(84%)</td>
+                                                <td class="bg-grey">10<br>(84%)</td>
+                                                <td class="bg-grey">10<br>(84%)</td>
+                                                <td class="bg-grey">10<br>(84%)</td>
+                                                <td class="bg-grey">10<br>(84%)</td>
+                                                <td class="bg-grey">10<br>(84%)</td>
+                                                <td class="bg-grey">10<br>(84%)</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Recommended Rates</th>
+                                                <th>3875</th>
+                                                <th>3250</th>
+                                                <th>3025</th>
+                                                <th>3025</th>
+                                                <th>3025</th>
+                                                <th>3025</th>
+                                                <th>3025</th>
+                                                <th>3025</th>
+                                                <th>3025</th>
+                                                <th>3025</th>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Deluxe Room CP,S</b></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Deluxe Room CP,O</b></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Deluxe Room CORP,S</b></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="11"><img class="sm-icon" src="./assets/images/sleeping.png"> Executive Room</th>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Executive Room CP,S</b></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Executive Room CP,D</b></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Executive Room CORP,S</b></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="11"><img class="sm-icon" src="./assets/images/sleeping.png"> Suite Room</th>
+                                            <tr>
+                                                <td><b>Suite Room CP,S</b></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Suite Room CP,D</b></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Suite Room CORP,S</b></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row -->
+</div>
+<app-footer></app-footer>

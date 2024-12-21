@@ -1,0 +1,221 @@
+<!-- <app-header></app-header>
+<app-sidebar></app-sidebar> -->
+<div class="page-wrapper page-body">
+    <div class="page-content container-fluid">
+        <div class="row">
+            <!-- <div class="col-md-12">
+                <div class="card card-body d-flex justify-content-between">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Select Value</mat-label>
+                            <mat-select>
+                                <mat-option value="a">A</mat-option>
+                                <mat-option value="a">B</mat-option>
+                                <mat-option value="a">C</mat-option>
+                                <mat-option value="a">D</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-md-6">
+                <div class="card graph-card">
+                    <div class="card-header">
+                        <h1 class="mb-0">SalesPerson</h1>
+                    </div>
+                    <div class="card-body d-flex justify-content-between align-items-center px-3">
+                        <h2>Old vs New Comparison</h2>
+                        <div class="d-flex">
+                            <mat-form-field class="mat-form-field" appearance="outline">
+                                <mat-label>Select Timeframe</mat-label>
+                                <mat-select (selectionChange)="onTimeframeChange($event.value)"
+                                    [value]="selectedTimeframe">
+                                    <mat-option value="day">Day</mat-option>
+                                    <mat-option value="week">Week</mat-option>
+                                    <mat-option value="month" selected>Month</mat-option>
+                                    <mat-option value="quarter">Quarter</mat-option>
+                                    <mat-option value="year">Year</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                            <mat-form-field class="mat-form-field" appearance="outline">
+                                <mat-label>Select Employee</mat-label>
+                                <mat-select [value]="selectedEmployees"
+                                    (selectionChange)="onEmployeeChange($event.value)" multiple>
+                                    <mat-option *ngFor="let employee of employees" [value]="employee">{{ employee
+                                        }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="pt-3 pb-3">
+                        <app-stack-compare-chart [chartOptions]="chartOptions1"></app-stack-compare-chart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card graph-card">
+                    <div class="card-header">
+                        <h1 class="mb-0">Counter wise</h1>
+                    </div>
+                    <div class="card-body d-flex justify-content-between align-items-center px-3">
+                        <h2>Old vs New Comparison</h2>
+                        <div class="d-flex">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Select Timeframe</mat-label>
+                                <mat-select (selectionChange)="onTimeframeChange($event.value)"
+                                    [value]="selectedTimeframe">
+                                    <mat-option value="day">Day</mat-option>
+                                    <mat-option value="week">Week</mat-option>
+                                    <mat-option value="month" selected>Month</mat-option>
+                                    <mat-option value="quarter">Quarter</mat-option>
+                                    <mat-option value="year">Year</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Select Counter</mat-label>
+                                <mat-select [value]="selectedCounter" (selectionChange)="onCounterChange($event.value)"
+                                    multiple>
+                                    <mat-option *ngFor="let counter of counterList" [value]="counter">{{ counter
+                                        }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="pt-3 pb-3">
+                        <app-stack-compare-chart [chartOptions]="chartOptions2"></app-stack-compare-chart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card graph-card">
+                    <div class="card-header">
+                        <h1 class="mb-0">Counter wise</h1>
+                    </div>
+                    <div class="card-body d-flex justify-content-between align-items-center px-3">
+                        <h2>Old vs New Comparison</h2>
+                        <div class="d-flex">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Select Timeframe</mat-label>
+                                <mat-select (selectionChange)="onTimeframeChange1($event.value)"
+                                    [value]="selectedTimeframe">
+                                    <mat-option value="custom">Custom</mat-option>
+                                    <mat-option value="week">Week</mat-option>
+                                    <mat-option value="month" selected>Month</mat-option>
+                                    <mat-option value="quarter">Quarter</mat-option>
+                                    <mat-option value="year">Year</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" *ngIf="this.selectedTimeframe1 === 'custom'">
+                                <mat-label>Enter a date range</mat-label>
+                                <mat-date-range-input [rangePicker]="picker">
+                                    <input matStartDate [(ngModel)]="salesStartDate" placeholder="Start date"
+                                        name="start">
+                                    <input matEndDate [(ngModel)]="salesEndDate" placeholder="End date" name="end">
+                                </mat-date-range-input>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-date-range-picker #picker></mat-date-range-picker>
+
+                                <mat-error *ngIf="salesStartDate && !isValidDate(salesStartDate)">Invalid start
+                                    date</mat-error>
+                                <mat-error *ngIf="salesEndDate && !isValidDate(salesEndDate)">Invalid end
+                                    date</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="pt-3 pb-3">
+                        <app-stack-compare-chart [chartOptions]="chartOptionsReturnCompare"></app-stack-compare-chart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card graph-card">
+                    <div class="card-header">
+                        <h1 class="mb-0">Counter wise</h1>
+                    </div>
+                    <div class="card-body d-flex justify-content-between align-items-center px-3">
+                        <h2>Old vs New Comparison</h2>
+                        <div class="d-flex">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Select Timeframe</mat-label>
+                                <mat-select (selectionChange)="onTimeframeChange3($event.value)"
+                                    [value]="selectedTimeframe3">
+                                    <mat-option value="custom">Custom</mat-option>
+                                    <mat-option value="week">Week</mat-option>
+                                    <mat-option value="month" selected>Month</mat-option>
+                                    <mat-option value="quarter">Quarter</mat-option>
+                                    <mat-option value="year">Year</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" *ngIf="this.selectedTimeframe3 === 'custom'">
+                                <mat-label>Enter a date range</mat-label>
+                                <mat-date-range-input [rangePicker]="picker">
+                                    <input matStartDate [(ngModel)]="salesStartDate" placeholder="Start date"
+                                        name="start">
+                                    <input matEndDate [(ngModel)]="salesEndDate" placeholder="End date" name="end">
+                                </mat-date-range-input>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-date-range-picker #picker></mat-date-range-picker>
+
+                                <mat-error *ngIf="salesStartDate && !isValidDate(salesStartDate)">Invalid start
+                                    date</mat-error>
+                                <mat-error *ngIf="salesEndDate && !isValidDate(salesEndDate)">Invalid end
+                                    date</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="pt-3 pb-3">
+                        <app-stack-compare-chart
+                            [chartOptions]="chartOptionsAlterationCompare"></app-stack-compare-chart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card graph-card">
+                    <div class="card-header">
+                        <h1 class="mb-0">Misbehave</h1>
+                    </div>
+                    <div class="card-body d-flex justify-content-between align-items-center px-3">
+                        <h2>Old vs New Comparison</h2>
+                        <div class="d-flex">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Select Timeframe</mat-label>
+                                <mat-select (selectionChange)="onTimeframeChange2($event.value)"
+                                    [value]="selectedTimeframe2">
+                                    <mat-option value="custom">Custom</mat-option>
+                                    <mat-option value="week">Week</mat-option>
+                                    <mat-option value="month" selected>Month</mat-option>
+                                    <mat-option value="quarter">Quarter</mat-option>
+                                    <mat-option value="year">Year</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" *ngIf="this.selectedTimeframe2 === 'custom'">
+                                <mat-label>Enter a date range</mat-label>
+                                <mat-date-range-input [rangePicker]="picker">
+                                    <input matStartDate [(ngModel)]="salesStartDate" placeholder="Start date"
+                                        name="start">
+                                    <input matEndDate [(ngModel)]="salesEndDate" placeholder="End date" name="end">
+                                </mat-date-range-input>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-date-range-picker #picker></mat-date-range-picker>
+
+                                <mat-error *ngIf="salesStartDate && !isValidDate(salesStartDate)">Invalid start
+                                    date</mat-error>
+                                <mat-error *ngIf="salesEndDate && !isValidDate(salesEndDate)">Invalid end
+                                    date</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="pt-3 pb-3">
+                        <app-stack-compare-chart
+                            [chartOptions]="chartOptionsMisbehaviorReport"></app-stack-compare-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <app-footer></app-footer> -->
+</div>

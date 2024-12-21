@@ -1,0 +1,45 @@
+.mat-form-field {
+    margin-bottom: 16px; // Adjust spacing as needed
+  
+    // Adjusting the height and padding of the form field
+    .mat-select {
+      height: 32px; // Set desired height
+      min-height: 32px; // Ensure minimum height
+      padding: 0; // Remove padding for less height
+  
+      // Adjust font size for a more compact appearance
+      font-size: 14px; // Adjust as needed
+    }
+  
+    // Optionally, adjust the label size and position
+    .mat-form-field-label {
+      font-size: 12px; // Smaller label size
+      transform: translateY(-10px) scale(0.75); // Adjust label position and scale
+    }
+  }
+  
+
+  .graph-card {
+    border-radius: 20px;
+    overflow: hidden;
+    .card-header {
+      margin-bottom: 1rem;
+      h1 {
+        line-height: 1.5;
+        margin: 0;
+        font-size: 1.25rem;
+        position: relative;
+        top: 2px;
+      }
+    }
+    .card-body {
+      padding: 0 1rem;
+      h2 {
+        margin: 0;
+        font-size: 14px;
+      }
+    }
+    .no-wrap {
+      white-space: nowrap;
+    }
+  }

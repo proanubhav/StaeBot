@@ -1,0 +1,68 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="page-wrapper">
+    <div class="row page-titles">
+        <div class="col-md-12 d-flex justify-content-between align-itmes-center">
+            <h2 class="text-themecolor mb-0">Update Rooms</h2>
+            <div class="d-flex justify-content-end align-self-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Update Rooms</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- Row -->
+    <div class="page-content container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-5">
+                            <h3>Update Available Rooms</h3>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-danger">Reset</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Choose Start Date</label>
+                                    <input type="date" class="form-control" placeholder="dd/mm/yyyy"
+                                        [(ngModel)]="startDate" (change)="updateHeaders()">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="responsive-table">
+                                    <table class="table common-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Rooms</th>
+                                                <th *ngFor="let date of tableHeaders">{{ date }}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let room of rooms">
+                                                <td><b>{{ room.name }}</b></td>
+                                                <td *ngFor="let date of tableHeaders">
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control" placeholder="2000">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row -->
+</div>
+<app-footer></app-footer>

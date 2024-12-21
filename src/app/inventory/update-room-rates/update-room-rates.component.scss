@@ -1,0 +1,63 @@
+.form-check.config-check {
+    padding-left: .25rem;
+}
+
+.common-table {
+
+    th {
+        border-top: 1px solid #eaeaea;
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    th:first-of-type,
+    td:first-of-type {
+        text-align: left;
+    }
+}
+
+/* toggle switch css */
+.switch-radio {
+    .custom-switch {
+        padding-left: 3rem;
+    }
+
+    .custom-control-label::before {
+        position: absolute;
+        content: "";
+        top: 0.25rem;
+        left: -2.3rem;
+        display: block;
+        width: 2rem;
+        height: 1.3rem;
+        pointer-events: all;
+        background-color: #18A557;
+        border: none;
+    }
+
+    .custom-switch .custom-control-label::after {
+        top: calc(.3rem + 3px);
+        left: calc(-2.25rem + 4px);
+        width: calc(1rem - 4px);
+        height: calc(1rem - 4px);
+        background-color: #fff;
+        border-radius: .6rem;
+        transform: none;
+    }
+
+    [type=checkbox].filled-in+label:after {
+        transform: scale(0) !important;
+    }
+
+    .custom-control-input:checked~.custom-control-label::before {
+        transform: rotate(0) !important;
+        background-color: #e4354a;
+    }
+
+    .custom-control-input:checked~.custom-control-label::after {
+        left: calc(-1.5rem + 2px);
+    }
+}
